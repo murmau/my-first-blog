@@ -7,28 +7,12 @@
       <div>
         <h1><a href="/">Django Girls</a></h1>
       </div>
-
-    <div>
-          <p>Published 4.11.2017, before lunch!</p>
-          <h2><a href="">A Blog-shaped Portfolio.</a></h2>
-          <h3>~MAUMADE~</h3>
-          <p><strong>Welcome to MAUMADE!</strong> This is a porfolio of my
-            artistic endeavors, such as:
-            <ul>
-              <li>music</li>
-              <li>theatre</li>
-              <li>UG culture</li>
-              <li>art pieces</li>
-              <li>artisanal work</li>
-            </ul>
-          Feel free to browse around at your leisure.</p>
-    </div>
-<br />
-    <div>
-        <p>Published 4.11.2017, right after the first one...</p>
-        <h2><a href="">A Second Post.</a></h2>
-        <p><em>Well,</em> this post is here so that I can keep up with the Django Girls
-        tutorial. I might as well put a photo here later, I'll come back to this.</p>
-    </div>
+    {% for post in posts %}
+        <div>
+            <p>published: {{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
   </body>
 </html>
